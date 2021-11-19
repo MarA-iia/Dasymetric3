@@ -162,7 +162,7 @@ alg_params = {
 }
 outputs['StatisticheZonaliHmean'] = processing.run('native:zonalstatistics', alg_params)
 
-Calcolatore campo Voladj
+#Calcolatore campo Voladj
 # Processing.initialize()
 # alg_params = {
     # 'FIELD_LENGTH': 10,

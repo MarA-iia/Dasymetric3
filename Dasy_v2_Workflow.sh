@@ -13,4 +13,4 @@ set CPL_LOG=NUL
 
 Xvfb :99 -ac -noreset &
 export DISPLAY=:99
-python3 DasymetricV2.py
+python3 DasymetricV2.py 2>&1 | tee log.txt

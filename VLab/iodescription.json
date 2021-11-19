@@ -64,9 +64,17 @@
         "valueType": "value",
         "description": "Grid population map (100 m x 100 m)",
 		"name": "POP_GRID",
-        "valueSchema": "url",
+		"hasDefault": true,
 		"defaultValue":"POP_GRID.gpkg",
         "target": "POP_GRID.gpkg"
-     }	 
+     },	
+        {
+        "id": "DataObject_0k4b4b2",
+        "outputType": "individual",
+        "valueType": "value",
+        "description": "Log file",
+		"name": "log",
+        "target": "log.txt"
+     }		 
       ]
 }
