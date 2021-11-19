@@ -6,8 +6,11 @@ export PATH=$PATH:/usr
 export XDG_RUNTIME_DIR=/home 
 export RUNLEVEL=3
 
+print(POP)
+
 export GDAL_FILENAME_IS_UTF8=YES
+set CPL_LOG=NUL
 
 Xvfb :99 -ac -noreset &
 export DISPLAY=:99
-python3 DasymetricV2.py >> test.txt
+python3 DasymetricV2.py

@@ -30,9 +30,9 @@ zr= QgsRasterLayer("Buildings.zip", "Built-up")
 if not zr.isValid():
     print ("Raster layer failed to load!")
     
-zr1= QgsRasterLayer("LIDAR_heights.zip", "Building_heights") #questo input dovrebbe essere opzionale
-if not zr1.isValid():
-    print ("Raster layer failed to load!")
+# zr1= QgsRasterLayer("LIDAR_heights.zip", "Building_heights") #questo input dovrebbe essere opzionale
+# if not zr1.isValid():
+    # print ("Raster layer failed to load!")
 
 POP="POP"
 print(POP)
@@ -162,18 +162,56 @@ alg_params = {
 }
 outputs['StatisticheZonaliHmean'] = processing.run('native:zonalstatistics', alg_params)
 
-# Calcolatore campo Voladj
-Processing.initialize()
-alg_params = {
-    'FIELD_LENGTH': 10,
-    'FIELD_NAME': 'VOL_subel',
-    'FIELD_PRECISION': 2,
-    'FIELD_TYPE': 0,
-    'FORMULA': '\"Factor\"*\"_count\"*100*\"Hint_mean\"',
-    'INPUT': outputs['Int2']['OUTPUT'], #outputs['StatisticheZonaliHmean']['INPUT_VECTOR'],
-    'OUTPUT': "/home/out1.shp"
-}
-outputs['CalcolatoreCampoVoladj'] = processing.run('qgis:fieldcalculator', alg_params)
+Calcolatore campo Voladj
+# Processing.initialize()
+# alg_params = {
+    # 'FIELD_LENGTH': 10,
+    # 'FIELD_NAME': 'VOL_subel',
+    # 'FIELD_PRECISION': 2,
+    # 'FIELD_TYPE': 0,
+    # 'FORMULA': '\"Factor\"*\"_count\"*100*\"Hint_mean\"',
+    # 'INPUT': outputs['Int2']['OUTPUT'], #outputs['StatisticheZonaliHmean']['INPUT_VECTOR'],
+    # 'OUTPUT': "/home/out1.shp"
+# }
+# outputs['CalcolatoreCampoVoladj'] = processing.run('qgis:fieldcalculator', alg_params)
+
+zr1= QgsRasterLayer("LIDAR_heights.zip", "Building_heights") #questo input dovrebbe essere opzionale
+if zr1.isValid():
+   # Statistiche zonali Hmean ##PASSAGGIO OPZIONALE CHE SI PUò ATTUARE SOLO IN PRESENZA DI DATI SULLE ALTEZZE
+     alg_params = {
+       'COLUMN_PREFIX': 'Hint_',
+        'INPUT_RASTER': zr1,
+        'INPUT_VECTOR': outputs['Int2']['OUTPUT'],#outputs['StatisticheZonaliBucount']['INPUT_VECTOR'],
+        'RASTER_BAND': 1,
+        'STATISTICS': [2]
+     }
+     outputs['StatisticheZonaliHmean'] = processing.run('native:zonalstatistics', alg_params)
+     # Calcolatore campo Voladj
+     Processing.initialize()
+     alg_params = {
+     'FIELD_LENGTH': 10,
+     'FIELD_NAME': 'VOL_subel',
+     'FIELD_PRECISION': 2,
+     'FIELD_TYPE': 0,
+     'FORMULA': '\"Factor\"*\"_count\"*100*\"Hint_mean\"',
+     'INPUT': outputs['Int2']['OUTPUT'], #outputs['StatisticheZonaliHmean']['INPUT_VECTOR'],
+     'OUTPUT': "/home/out1.shp"
+     }
+     outputs['CalcolatoreCampoVoladj'] = processing.run('qgis:fieldcalculator', alg_params)
+else:
+     print ("Building heights layer failed to load!") 
+     # Calcolatore campo Voladj
+     Processing.initialize()
+     alg_params = {
+     'FIELD_LENGTH': 10,
+     'FIELD_NAME': 'VOL_subel',
+     'FIELD_PRECISION': 2,
+     'FIELD_TYPE': 0,
+     'FORMULA': '\"Factor\"*\"_count\"*100',
+     'INPUT': outputs['Int2']['OUTPUT'],
+     'OUTPUT': "/home/out1.shp"
+     }
+     outputs['CalcolatoreCampoVoladj'] = processing.run('qgis:fieldcalculator', alg_params)
 
 out1 = QgsVectorLayer("/home/out1.shp","out1","ogr")
 if not out1.isValid():
