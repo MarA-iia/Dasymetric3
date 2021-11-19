@@ -6,8 +6,6 @@ export PATH=$PATH:/usr
 export XDG_RUNTIME_DIR=/home 
 export RUNLEVEL=3
 
-print(POP)
-
 export GDAL_FILENAME_IS_UTF8=YES
 set CPL_LOG=NUL
 
