@@ -34,7 +34,8 @@ zr1= QgsRasterLayer("LIDAR_heights.zip", "Building_heights") #questo input dovre
 if not zr1.isValid():
     print ("Raster layer failed to load!")
 
-print("POP_field")
+POP="POP"
+print(POP)
 
 # Riproietta layer
 alg_params = {

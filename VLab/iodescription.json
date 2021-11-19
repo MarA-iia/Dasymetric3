@@ -50,7 +50,7 @@
         "valueType": "value",
         "description": "Name of population field of attributes",
 		"name": "POP_field",
-        "obligation": true,
+        "obligation": false,
         "hasDefault": true,
         "valueSchema": "string",
 		"defaultValue":"POP",
