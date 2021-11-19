@@ -153,14 +153,14 @@ outputs['StatisticheZonaliBucount'] = processing.run('native:zonalstatistics', a
 
 
 # Statistiche zonali Hmean ##PASSAGGIO OPZIONALE CHE SI PUò ATTUARE SOLO IN PRESENZA DI DATI SULLE ALTEZZE
-alg_params = {
-    'COLUMN_PREFIX': 'Hint_',
-    'INPUT_RASTER': zr1,
-    'INPUT_VECTOR': outputs['Int2']['OUTPUT'],#outputs['StatisticheZonaliBucount']['INPUT_VECTOR'],
-    'RASTER_BAND': 1,
-    'STATISTICS': [2]
-}
-outputs['StatisticheZonaliHmean'] = processing.run('native:zonalstatistics', alg_params)
+# alg_params = {
+    # 'COLUMN_PREFIX': 'Hint_',
+    # 'INPUT_RASTER': zr1,
+    # 'INPUT_VECTOR': outputs['Int2']['OUTPUT'],#outputs['StatisticheZonaliBucount']['INPUT_VECTOR'],
+    # 'RASTER_BAND': 1,
+    # 'STATISTICS': [2]
+# }
+# outputs['StatisticheZonaliHmean'] = processing.run('native:zonalstatistics', alg_params)
 
 #Calcolatore campo Voladj
 # Processing.initialize()
