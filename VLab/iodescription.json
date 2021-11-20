@@ -66,6 +66,7 @@
 		"name": "POP_GRID",
 		"hasDefault": true,
 		"defaultValue":"POP_GRID.gpkg",
+		"valueSchema": "url",
         "target": "POP_GRID.gpkg"
      },	
         {
@@ -74,6 +75,7 @@
         "valueType": "value",
         "description": "Log file",
 		"name": "log",
+		"valueSchema": "url",
         "target": "log.txt"
      }		 
       ]

@@ -34,7 +34,6 @@ if not zr.isValid():
 # if not zr1.isValid():
     # print ("Raster layer failed to load!")
 
-POP="POP"
 print(POP)
 
 # Riproietta layer
