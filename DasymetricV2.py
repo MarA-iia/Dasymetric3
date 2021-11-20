@@ -34,7 +34,9 @@ if not zr.isValid():
 # if not zr1.isValid():
     # print ("Raster layer failed to load!")
 
-print(POP)
+# pop_field=open(".VLab/iodescription.json","r")
+# pop_name=json.loads(pop_field.read())
+# pop=pop_name["DataObject_0k4b4a5"]
 
 # Riproietta layer
 alg_params = {
