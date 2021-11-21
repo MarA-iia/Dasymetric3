@@ -54,7 +54,7 @@
         "hasDefault": true,
         "valueSchema": "string_parameter",
 		"defaultValue":"POP"
-     }
+	 }
       ],
     "outputs": [
         {
