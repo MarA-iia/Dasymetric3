@@ -38,7 +38,11 @@ if not zr.isValid():
 # pop_field=open(".VLab/iodescription.json","r")
 # pop_name=json.loads(pop_field.read())
 # pop=pop_name["DataObject_0k4b4a5"]
-print(self.pop_field)
+pop=open("iodescription.json","r")
+pop_v=json.loads(pop.read())
+pop_value=pop['pop_field']
+print(pop_value)
+
 # Riproietta layer
 alg_params = {
     'INPUT': z,
