@@ -1,7 +1,7 @@
 {
     "inputs": [   
        {
-        "id": "DataObject_0k4b4a1",
+        "id": "census_pop_vector_layer",
         "inputType": "individual",
         "valueType": "value",
         "description": "Population count per census zone",
@@ -9,10 +9,10 @@
         "obligation": true,
         "hasDefault": false,
         "valueSchema": "url",
-        "target": "POPBari_2020.zip"
+        "target": "POP.zip"
      },
        {
-        "id": "DataObject_0k4b4a2",
+        "id": "urban_atlas_vector_layer",
         "inputType": "individual",
         "valueType": "value",
         "description": "Urban Atlas from Copernicus Land Monitoring Service",
@@ -23,7 +23,7 @@
         "target": "UrbanAtlas.zip"
      },
 	    {
-        "id": "DataObject_0k4b4a3",
+        "id": "buildings_raster_layer",
         "inputType": "individual",
         "valueType": "value",
         "description": "Binary Built-up map",
@@ -34,32 +34,31 @@
         "target": "Buildings.zip"
      },	 
         {
-        "id": "DataObject_0k4b4a4",
+        "id": "heights_raster_layer",
         "inputType": "individual",
         "valueType": "value",
         "description": "Building heights",
-		"name": "Building heights",
+		"name": "Building heights (optional)",
         "obligation": false,
         "hasDefault": false,
         "valueSchema": "url",
-        "target": "LIDAR_heights.zip"
+        "target": "Heights.zip"
      },
 	    {
-        "id": "DataObject_0k4b4a5",
+        "id": "pop_field",
         "inputType": "individual",
         "valueType": "value",
         "description": "Name of population field of attributes",
 		"name": "POP_field",
         "obligation": false,
         "hasDefault": true,
-        "valueSchema": "string",
-		"defaultValue":"POP",
-        "target": "POP"
+        "valueSchema": "string_parameter",
+		"defaultValue":"POP"
      }
       ],
     "outputs": [
         {
-        "id": "DataObject_0k4b4b1",
+        "id": "pop_grid_vector_layer",
         "outputType": "individual",
         "valueType": "value",
         "description": "Grid population map (100 m x 100 m)",
@@ -70,7 +69,7 @@
         "target": "POP_GRID.gpkg"
      },	
         {
-        "id": "DataObject_0k4b4b2",
+        "id": "log",
         "outputType": "individual",
         "valueType": "value",
         "description": "Log file",

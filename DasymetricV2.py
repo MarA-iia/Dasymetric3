@@ -1,5 +1,6 @@
 #PyQGIS script for SDG15_1_2 Indicator
 import os
+import json
 from qgis.core import *
 import processing
 from qgis.analysis import *
@@ -18,7 +19,7 @@ QgsApplication.processingRegistry().addProvider(QgsNativeAlgorithms())
 #input_output
 outputs = {}
 results = {}
-z = QgsVectorLayer("POPBari_2020.zip","POP","ogr")
+z = QgsVectorLayer("POP.zip","POP","ogr")
 if not z.isValid():
   print ("Vector layer (population census data) failed to load!")
   
@@ -37,7 +38,7 @@ if not zr.isValid():
 # pop_field=open(".VLab/iodescription.json","r")
 # pop_name=json.loads(pop_field.read())
 # pop=pop_name["DataObject_0k4b4a5"]
-
+print(self.pop_field)
 # Riproietta layer
 alg_params = {
     'INPUT': z,
@@ -176,7 +177,7 @@ outputs['StatisticheZonaliBucount'] = processing.run('native:zonalstatistics', a
 # }
 # outputs['CalcolatoreCampoVoladj'] = processing.run('qgis:fieldcalculator', alg_params)
 
-zr1= QgsRasterLayer("LIDAR_heights.zip", "Building_heights") #questo input dovrebbe essere opzionale
+zr1= QgsRasterLayer("Heights.zip", "Building_heights") #questo input dovrebbe essere opzionale
 if zr1.isValid():
    # Statistiche zonali Hmean ##PASSAGGIO OPZIONALE CHE SI PUò ATTUARE SOLO IN PRESENZA DI DATI SULLE ALTEZZE
      alg_params = {
