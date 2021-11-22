@@ -1,6 +1,7 @@
 #PyQGIS script for SDG15_1_2 Indicator
 import os
 import json
+import gdal
 from qgis.core import *
 import processing
 from qgis.analysis import *
@@ -15,6 +16,7 @@ qgs.setPrefixPath("/usr", True)
 qgs.initQgis()
 QgsApplication.processingRegistry().addProvider(QgsNativeAlgorithms())
 #
+gdal.SetConfigOption('CPL_LOG', 'NUL')
 ## Processing init
 #input_output
 outputs = {}
@@ -34,16 +36,12 @@ if not zr.isValid():
 # zr1= QgsRasterLayer("LIDAR_heights.zip", "Building_heights") #questo input dovrebbe essere opzionale
 # if not zr1.isValid():
     # print ("Raster layer failed to load!")
-#https://github.com/MarA-iia/DasymetricV2.2/blob/main/VLab/iodescription.json
-# vlabparams=open("https://github.com/MarA-iia/DasymetricV2.2/blob/main/VLab/iodescription.json","r")
+
+#read input parameters
 vlabparams=open("vlabparams.json","r")
 parameters=json.loads(vlabparams.read())
-pippovalue=parameters['pop_field']
-# pop=pop_name["DataObject_0k4b4a5"]
-# pop=open("iodescription.json","r")
-# pop_v=json.loads(pop.read())
-# pop_value=pop['pop_field']
-print(pippovalue)
+pop_field=parameters['pop_field']
+print(pop_field)
 
 # Riproietta layer
 alg_params = {
