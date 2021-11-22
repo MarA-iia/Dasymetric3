@@ -64,7 +64,7 @@
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "number_parameter",
-		"defaultValue":"1.0 0.7 0.1 0.0 0.01"
+		"defaultValue":"param1Numberid:1.0 param2Numberid:0.7 param3Numberid:0.1 param4Numberid:0.0 param5Numberid:0.01"
       }
        ],
     "outputs": [
