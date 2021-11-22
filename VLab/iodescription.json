@@ -58,13 +58,13 @@
 	    {
         "id": "weights",
         "inputType": "array",
-        "valueType": "value",
+        "valueType": "keyValue",
         "description": "Correction factors per any specfic building use. Insert this sequence: Residential",
 		"name": "Weights",
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "number_parameter",
-		"defaultValue":"param1Numberid:1.0 param2Numberid:0.7 param3Numberid:0.1 param4Numberid:0.0 param5Numberid:0.01"
+		"defaultValueArray":"Residential:1.0 Rural:0.7 Ind_Comm:0.1 Roads:0.0 Others:0.01"
       }
        ],
     "outputs": [
