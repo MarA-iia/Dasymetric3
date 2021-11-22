@@ -65,8 +65,8 @@
         "hasDefault": true,
         "valueSchema": "number_parameter",
 		"defaultValue":"1.0 0.7 0.1 0.0 0.01"
-      },
-      ],
+      }
+       ],
     "outputs": [
         {
         "id": "pop_grid_vector_layer",
