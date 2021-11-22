@@ -21,7 +21,7 @@
         "hasDefault": true,
         "valueSchema": "string_parameter",
 		"defaultValue":"POP"
-	 }
+	 },
        {
         "id": "urban_atlas_vector_layer",
         "inputType": "individual",
