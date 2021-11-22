@@ -56,15 +56,15 @@
         "target": "Heights.zip"
      },
 	    {
-        "id": "corr_factor",
+        "id": "weights",
         "inputType": "array",
         "valueType": "value",
-        "description": "Name of population field of attributes",
-		"name": "POP_field",
+        "description": "Correction factors per any specfic building use. Insert this sequence: Residential",
+		"name": "Weights",
         "obligation": false,
         "hasDefault": true,
-        "valueSchema": "string_parameter",
-		"defaultValue":"POP"
+        "valueSchema": "number_parameter",
+		"defaultValue":[1,0.7,0.1,0,0.01]
 	 }
       ],
     "outputs": [
