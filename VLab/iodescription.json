@@ -64,8 +64,8 @@
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "number_parameter",
-		"defaultValue":[1,0.7,0.1,0,0.01]
-	 }
+		"defaultValue":"Residential":1 "Rural":0.7 "IndComm":0.1 "Roads":0 "Others":0.01
+
       ],
     "outputs": [
         {
