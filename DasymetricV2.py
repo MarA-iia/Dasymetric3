@@ -41,7 +41,10 @@ if not zr.isValid():
 vlabparams=open("vlabparams.json","r")
 parameters=json.loads(vlabparams.read())
 pop_field=parameters['pop_field']
+weights=parameters['weights']
 print(pop_field)
+print(weights)
+vlabparams.close()
 
 # Riproietta layer
 alg_params = {
