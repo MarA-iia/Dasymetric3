@@ -44,7 +44,7 @@ pop_field=parameters['pop_field']
 weights=parameters['weights']
 print(pop_field)
 print(weights)
-vlabparams.close()
+# vlabparams.close()
 
 # Riproietta layer
 alg_params = {
