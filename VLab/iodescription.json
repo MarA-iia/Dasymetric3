@@ -15,7 +15,7 @@
         "id": "pop_field",
         "inputType": "individual",
         "valueType": "value",
-        "description": "Name of population field of attributes",
+        "description": "Name of population attribute field",
 		"name": "POP_field",
         "obligation": false,
         "hasDefault": true,
@@ -26,14 +26,34 @@
         "id": "urban_atlas_vector_layer",
         "inputType": "individual",
         "valueType": "value",
-        "description": "Urban Atlas from Copernicus Land Monitoring Service",
+        "description": "Urban Atlas from Copernicus Land Monitoring Service.  A generic urban environment classification dataset can be used instead of urban Atlas for not-European region. See customizable parameters",
         "name": "Urban Atlas",
         "obligation": true,
         "hasDefault": false,
         "valueSchema": "url",
         "target": "UrbanAtlas.zip"
      },
+	   {
+        "id": "class_encoding_field",
+        "inputType": "individual",
+        "valueType": "value",
+        "description": "Name of the field with the class encoding"
+		"name": "POP_field",
+        "obligation": false,
+        "hasDefault": true,
+        "valueSchema": "string_parameter",
+		"defaultValue":"POP"
+	 },
 	    {
+        "id": "classes",
+        "inputType": "array",
+        "valueType": "value",
+        "description": "Weights",
+		"name": "weights",
+        "obligation": false,
+		"valueArrayInterpretation":"replace"
+      },
+   	    {
         "id": "buildings_raster_layer",
         "inputType": "individual",
         "valueType": "value",
@@ -117,6 +137,7 @@
         "description": "Weights",
 		"name": "weights",
         "obligation": false,
+		"valueSchema": "string_parameter",
 		"valueArrayInterpretation":"replace"
       }
        ],
