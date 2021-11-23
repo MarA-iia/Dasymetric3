@@ -37,12 +37,12 @@
         "id": "class_encoding_field",
         "inputType": "individual",
         "valueType": "value",
-        "description": "Name of the field with the class encoding"
-		"name": "POP_field",
+        "description": "Name of the field with the class encoding",
+		"name": "class_code_field",
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "string_parameter",
-		"defaultValue":"POP"
+		"defaultValue":"code_2018"
 	 },
 	    {
         "id": "classes",
