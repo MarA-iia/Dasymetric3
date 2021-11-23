@@ -118,7 +118,7 @@
 		"name": "weights",
         "obligation": false,
         "valueSchema": "number_parameter",
-		"valueArrayInterpretation":"replace",
+		"valueArrayInterpretation":"replace"
       }
        ],
     "outputs": [
