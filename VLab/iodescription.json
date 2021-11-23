@@ -56,16 +56,68 @@
         "target": "Heights.zip"
      },
 	    {
-        "id": "weights",
-        "inputType": "array",
-        "valueType": "keyValue",
-        "description": "Correction factors per any specfic building use. Insert this sequence: Residential",
-		"name": "Weights",
+        "id": "Residential_weight",
+        "inputType": "individual",
+        "valueType": "value",
+        "description": "Weight for residential building use areas",
+		"name": "residential_weight",
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "number_parameter",
-		"defaultValueArray":"Residential:1.0 Rural:0.7 Ind_Comm:0.1 Roads:0.0 Others:0.01"
-      }
+		"defaultValue":1.0
+      },
+	    {
+        "id": "Rural_weight",
+        "inputType": "individual",
+        "valueType": "value",
+        "description": "Weight for rural building use areas",
+		"name": "rural_weight",
+        "obligation": false,
+        "hasDefault": true,
+        "valueSchema": "number_parameter",
+		"defaultValue":0.7
+      },
+        "id": "IndComm_weight",
+        "inputType": "individual",
+        "valueType": "value",
+        "description": "Weight for industrial, commercial and leisure building use areas",
+		"name": "ind_comm_weight",
+        "obligation": false,
+        "hasDefault": true,
+        "valueSchema": "number_parameter",
+		"defaultValue":0.1
+      },
+        "id": "Roads_weight",
+        "inputType": "individual",
+        "valueType": "value",
+        "description": "Weight for roads, railways, port and airport building use areas",
+		"name": "roads_weight",
+        "obligation": false,
+        "hasDefault": true,
+        "valueSchema": "number_parameter",
+		"defaultValue":0.0
+      },
+        "id": "Others_weight",
+        "inputType": "individual",
+        "valueType": "value",
+        "description": "Weight for other building use classes",
+		"name": "others_weight",
+        "obligation": false,
+        "hasDefault": true,
+        "valueSchema": "number_parameter",
+		"defaultValue":0.01
+      },
+        "id": "weights",
+        "inputType": "array",
+        "valueType": "keyValue",
+        "description": "Weights",
+		"name": "weights",
+        "obligation": false,
+        "hasDefault": true,
+        "valueSchema": "number_parameter",
+		"valueArrayInterpretation":"replace",
+		"defaultValueArray":"res=0.01 prova=0.4"
+      }	  	  
        ],
     "outputs": [
         {
