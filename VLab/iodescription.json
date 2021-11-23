@@ -77,6 +77,7 @@
         "valueSchema": "number_parameter",
 		"defaultValue":0.7
       },
+	    {
         "id": "IndComm_weight",
         "inputType": "individual",
         "valueType": "value",
