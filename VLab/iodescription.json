@@ -113,14 +113,14 @@
 	    {
         "id": "weights",
         "inputType": "array",
-        "valueType": "keyValue",
+        "valueType": "value",
         "description": "Weights",
 		"name": "weights",
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "number_parameter",
 		"valueArrayInterpretation":"replace",
-		"defaultValueArray":"res=0.01 prova=0.4"
+		"defaultValueArray":"{0.01 0.2} "
       }	  	  
        ],
     "outputs": [
