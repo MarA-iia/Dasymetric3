@@ -118,9 +118,9 @@
 		"name": "weights",
         "obligation": false,
         "hasDefault": true,
-        "valueSchema": "number_parameter",
+        "valueSchema": "string_parameter",
 		"valueArrayInterpretation":"replace",
-		"defaultValueArray":"{0.01 0.2} "
+		"defaultValueArray":"0.01 0.2"
       }	  	  
        ],
     "outputs": [
