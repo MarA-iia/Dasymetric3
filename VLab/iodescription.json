@@ -117,7 +117,6 @@
         "description": "Weights",
 		"name": "weights",
         "obligation": false,
-        "valueSchema": "number_parameter",
 		"valueArrayInterpretation":"replace"
       }
        ],
