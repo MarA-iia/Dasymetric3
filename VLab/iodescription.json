@@ -88,6 +88,7 @@
         "valueSchema": "number_parameter",
 		"defaultValue":0.1
       },
+	    {	  
         "id": "Roads_weight",
         "inputType": "individual",
         "valueType": "value",
@@ -98,6 +99,7 @@
         "valueSchema": "number_parameter",
 		"defaultValue":0.0
       },
+	    {
         "id": "Others_weight",
         "inputType": "individual",
         "valueType": "value",
@@ -108,6 +110,7 @@
         "valueSchema": "number_parameter",
 		"defaultValue":0.01
       },
+	    {
         "id": "weights",
         "inputType": "array",
         "valueType": "keyValue",
