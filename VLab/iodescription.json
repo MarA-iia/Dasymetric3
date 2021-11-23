@@ -117,10 +117,8 @@
         "description": "Weights",
 		"name": "weights",
         "obligation": false,
-        "hasDefault": true,
         "valueSchema": "string_parameter",
 		"valueArrayInterpretation":"replace",
-		"defaultValueArray":"0.01 , 0.2"
       }	  	  
        ],
     "outputs": [
