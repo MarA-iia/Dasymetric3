@@ -12,7 +12,7 @@ set CPL_LOG=NUL
 Xvfb :99 -ac -noreset &
 export DISPLAY=:99
 
-formula=$(creare_formula_sql.sh)
+formula=$(bash creare_formula_sql.sh)
 echo $formula
 
 # python3 argument_input.py  "$formula"
