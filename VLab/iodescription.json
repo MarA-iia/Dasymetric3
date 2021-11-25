@@ -45,18 +45,6 @@
 		"defaultValue":"code_2018",
         "target": "code_2018"
 	 },
-	    {
-        "id": "building_use_classes",
-        "inputType": "individual",
-        "valueType": "value",
-        "description": "Class selection for any specific building use",
-		"name": "building_use_classes",
-        "obligation": true,
-        "hasDefault": true,
-        "valueSchema": "url",
-		"defaultValue":
-        "target": "building_use_classes.txt"
-      },
    	    {
         "id": "buildings_raster_layer",
         "inputType": "individual",
