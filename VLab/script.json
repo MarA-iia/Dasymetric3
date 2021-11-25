@@ -11,6 +11,11 @@
         "pathType": "FILE"
    },
        {
+        "repoPath": "parameters.txt",
+        "targetPath": "parameters.txt",
+        "pathType": "FILE"
+   },
+       {
         "repoPath": "DasymetricV2.py",
         "targetPath": "DasymetricV2.py",
         "pathType": "FILE"
