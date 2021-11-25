@@ -59,7 +59,7 @@ vlabparams.close()
 
 # print("This is the name of the script:", sys.argv[0])
 # print("Number of arguments:", len(sys.argv))
-# print("The arguments are:" , str(sys.argv))
+print("The arguments are:" , str(sys.argv))
 print("Reclassification formula (from Urban Atlas to building use mapping):", str(sys.argv))
 #Example output
 #This is the name of the script: sysargv.py
@@ -104,7 +104,7 @@ alg_params = {
     'FIELD_NAME': 'BUclass',
     'FIELD_PRECISION': 2,
     'FIELD_TYPE': 2,
-    'FORMULA'=str(sys.argv),
+    'FORMULA':str(sys.argv),
     # 'FORMULA': 'CASE \r\nWHEN \"code_2018\"=\'11100\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11210\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11220\' THEN \'Res\'    \r\nWHEN \"code_2018\"=\'11230\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11240\' THEN \'Res\'\r\nWHEN \"code_2018\"=\'13400\' THEN \'Res\'   \r\nWHEN \"code_2018\"=\'12100\' THEN \'IndCommLei\'\r\nWHEN \"code_2018\"=\'14100\' THEN \'IndCommLei\' \r\nWHEN \"code_2018\"=\'14200\' THEN \'IndCommLei\' \r\nWHEN \"code_2018\"=\'21000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'22000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'23000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'24000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'32000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'33000\' THEN \'Rural\'\r\nWHEN \"code_2018\"=\'12210\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12220\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12230\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12300\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12400\' THEN \'RoadsEt\'     \r\nELSE \'Other\'\r\nEND',
     'INPUT': outputs['EstrairitagliaDaEstensione']['OUTPUT'],
     'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
