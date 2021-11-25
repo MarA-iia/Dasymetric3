@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export PYTHONPATH=$PYTHONPATH:/usr/share/qgis/python:/usr/share/qgis/python/plugins:/usr/lib/python3/dist-packages:/usr/lib/python3/dist-packages/qgis/
 export LD_LIBRARY_PATH=/usr/lib
