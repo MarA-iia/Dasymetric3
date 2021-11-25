@@ -38,23 +38,29 @@ if not zr.isValid():
 # if not zr1.isValid():
     # print ("Raster layer failed to load!")
 
-#read input parameters
+##read input parameters
 vlabparams=open("vlabparams.json","r")
 parameters=json.loads(vlabparams.read())
+
 pop_field=parameters['pop_field']
-# weights=parameters['weights']
-# res=parameters['Residential_weight']
 print(pop_field)
-# print(weights)
+
+#weights
+W1=parameters['Residential_weight']
+W2=parameters['Rural_weight']
+W3=parameters['IndComm_weight']
+W4=parameters['Others_weight']
+print("WEIGHTS LIST")
+print("Residential weight:", W1)
+print("Rural weight:", W2)
+print("Industrial, Commercial and Leisure weight:", W3)
+print("Others weight:", W4)
 vlabparams.close()
 
-
-print("This is the name of the script:", sys.argv[0])
-print("Number of arguments:", len(sys.argv))
-print("The arguments are:" , str(sys.argv))
-
-#formula=str(sys.argv)
-
+# print("This is the name of the script:", sys.argv[0])
+# print("Number of arguments:", len(sys.argv))
+# print("The arguments are:" , str(sys.argv))
+print("Reclassification formula (from Urban Atlas to building use mapping):", str(sys.argv))
 #Example output
 #This is the name of the script: sysargv.py
 #Number of arguments in: 3
@@ -98,7 +104,8 @@ alg_params = {
     'FIELD_NAME': 'BUclass',
     'FIELD_PRECISION': 2,
     'FIELD_TYPE': 2,
-    'FORMULA': 'CASE \r\nWHEN \"code_2018\"=\'11100\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11210\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11220\' THEN \'Res\'    \r\nWHEN \"code_2018\"=\'11230\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11240\' THEN \'Res\'\r\nWHEN \"code_2018\"=\'13400\' THEN \'Res\'   \r\nWHEN \"code_2018\"=\'12100\' THEN \'IndCommLei\'\r\nWHEN \"code_2018\"=\'14100\' THEN \'IndCommLei\' \r\nWHEN \"code_2018\"=\'14200\' THEN \'IndCommLei\' \r\nWHEN \"code_2018\"=\'21000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'22000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'23000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'24000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'32000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'33000\' THEN \'Rural\'\r\nWHEN \"code_2018\"=\'12210\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12220\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12230\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12300\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12400\' THEN \'RoadsEt\'     \r\nELSE \'Other\'\r\nEND',
+    'FORMULA'=str(sys.argv),
+    # 'FORMULA': 'CASE \r\nWHEN \"code_2018\"=\'11100\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11210\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11220\' THEN \'Res\'    \r\nWHEN \"code_2018\"=\'11230\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11240\' THEN \'Res\'\r\nWHEN \"code_2018\"=\'13400\' THEN \'Res\'   \r\nWHEN \"code_2018\"=\'12100\' THEN \'IndCommLei\'\r\nWHEN \"code_2018\"=\'14100\' THEN \'IndCommLei\' \r\nWHEN \"code_2018\"=\'14200\' THEN \'IndCommLei\' \r\nWHEN \"code_2018\"=\'21000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'22000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'23000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'24000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'32000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'33000\' THEN \'Rural\'\r\nWHEN \"code_2018\"=\'12210\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12220\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12230\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12300\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12400\' THEN \'RoadsEt\'     \r\nELSE \'Other\'\r\nEND',
     'INPUT': outputs['EstrairitagliaDaEstensione']['OUTPUT'],
     'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
 }
@@ -111,7 +118,7 @@ alg_params = {
     'FIELD_NAME': 'Factor',
     'FIELD_PRECISION': 2,
     'FIELD_TYPE': 0,
-    'FORMULA': 'CASE \r\nWHEN \"BUclass\"=\'Res\' THEN 1 \r\nWHEN \"BUclass\"=\'IndCommLei\' THEN 0.1 \r\nWHEN \"BUclass\"=\'Rural\' THEN 0.7    \r\nWHEN \"BUclass\"=\'RoadsEt\' THEN 0.0   \r\nELSE 0.01\r\nEND',
+    'FORMULA': 'CASE \r\nWHEN \"BUclass\"=\'Res\' THEN W1 \r\nWHEN \"BUclass\"=\'IndCommLei\' THEN W3 \r\nWHEN \"BUclass\"=\'Rural\' THEN W2    \r\nWHEN \"BUclass\"=\'RoadsEt\' THEN 0.0   \r\nELSE W4\r\nEND',
     'INPUT': outputs['CalcolatoreCampi_class']['OUTPUT'],
     'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
 }
@@ -222,7 +229,7 @@ if zr1.isValid():
      }
      outputs['CalcolatoreCampoVoladj'] = processing.run('qgis:fieldcalculator', alg_params)
 else:
-     print ("Building heights layer failed to load!") 
+     print ("WARNING: Building heights layer failed to load!") 
      # Calcolatore campo Voladj
      Processing.initialize()
      alg_params = {

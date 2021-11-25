@@ -140,10 +140,10 @@ VAR_Finale=$VAR$VAR_end
 
 
 myformula=$VAR_Finale
-echo "$VAR_Finale"
+# echo "$VAR_Finale"
 
 }
 
 
 creare_formula_sql parameters.txt
-echo $VAR_Finale
+# echo $VAR_Finale
