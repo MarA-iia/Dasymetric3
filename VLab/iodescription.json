@@ -42,16 +42,20 @@
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "string_parameter",
-		"defaultValue":"code_2018"
+		"defaultValue":"code_2018",
+        "target": "code_2018"
 	 },
 	    {
-        "id": "classes",
-        "inputType": "array",
+        "id": "building_use_classes",
+        "inputType": "individual",
         "valueType": "value",
-        "description": "Weights",
-		"name": "weights",
-        "obligation": false,
-		"valueArrayInterpretation":"replace"
+        "description": "Class selection for any specific building use",
+		"name": "building_use_classes",
+        "obligation": true,
+        "hasDefault": true,
+        "valueSchema": "url",
+		"defaultValue":
+        "target": "building_use_classes.txt"
       },
    	    {
         "id": "buildings_raster_layer",
@@ -129,16 +133,6 @@
         "hasDefault": true,
         "valueSchema": "number_parameter",
 		"defaultValue":0.01
-      },
-	    {
-        "id": "weights",
-        "inputType": "array",
-        "valueType": "value",
-        "description": "Weights",
-		"name": "weights",
-        "obligation": false,
-		"valueSchema": "string_parameter",
-		"valueArrayInterpretation":"replace"
       }
        ],
     "outputs": [

@@ -1,5 +1,6 @@
 #PyQGIS script for SDG15_1_2 Indicator
 import os
+import sys
 import json
 import gdal
 from qgis.core import *
@@ -41,11 +42,23 @@ if not zr.isValid():
 vlabparams=open("vlabparams.json","r")
 parameters=json.loads(vlabparams.read())
 pop_field=parameters['pop_field']
-weights=parameters['weights']
-res=parameters['Residential_weight']
+# weights=parameters['weights']
+# res=parameters['Residential_weight']
 print(pop_field)
-print(weights)
-# vlabparams.close()
+# print(weights)
+vlabparams.close()
+
+
+print("This is the name of the script:", sys.argv[0])
+print("Number of arguments:", len(sys.argv))
+print("The arguments are:" , str(sys.argv))
+
+#formula=str(sys.argv)
+
+#Example output
+#This is the name of the script: sysargv.py
+#Number of arguments in: 3
+#The arguments are: ['sysargv.py', 'arg1', 'arg2']
 
 # Riproietta layer
 alg_params = {
