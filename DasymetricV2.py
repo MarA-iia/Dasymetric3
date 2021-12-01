@@ -58,7 +58,7 @@ print("Others weight:", W4)
 vlabparams.close()
 
 form = sys.argv[1]
-form2 = form.encode("string_escape")
+form2 = form.encode("unicode_escape")
 print("Stringa della formula: ",form2)
 print("This is the name of the script:", sys.argv[0])
 print("Number of arguments:", len(sys.argv))
