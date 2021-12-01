@@ -274,7 +274,7 @@ alg_params = {
     'FIELDS_TO_COPY': ['sum'],
     'FIELD_2': 'CENSUS_ID',
     'INPUT': outputs['CalcolatoreCampoVoladj']['OUTPUT'],
-    'INPUT_2': outputs['Dissolvi']['OUTPUT'],
+    'INPUT_2': outdiss1,
     'METHOD': 1,
     'PREFIX': 'Vol_subel',
     'OUTPUT': "/home/out2.shp"
