@@ -17,7 +17,7 @@ qgs.setPrefixPath("/usr", True)
 qgs.initQgis()
 QgsApplication.processingRegistry().addProvider(QgsNativeAlgorithms())
 #
-#gdal.SetConfigOption('CPL_LOG', 'NUL')
+gdal.SetConfigOption('CPL_LOG', 'NUL')
 ## Processing init
 #input_output
 outputs = {}
@@ -57,10 +57,10 @@ print("Industrial, Commercial and Leisure weight:", W3)
 print("Others weight:", W4)
 vlabparams.close()
 
-# print("This is the name of the script:", sys.argv[0])
-# print("Number of arguments:", len(sys.argv))
+print("This is the name of the script:", sys.argv[0])
+print("Number of arguments:", len(sys.argv))
 print("The arguments are:" , str(sys.argv))
-print("Reclassification formula (from Urban Atlas to building use mapping):", str(sys.argv))
+#print("Reclassification formula (from Urban Atlas to building use mapping):", str(sys.argv))
 #Example output
 #This is the name of the script: sysargv.py
 #Number of arguments in: 3
