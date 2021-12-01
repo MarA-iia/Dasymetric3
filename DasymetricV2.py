@@ -327,7 +327,7 @@ alg_params = {
     'FIELD_TYPE': 0,
     'FORMULA': 'to_real(\"sum\")',
     'INPUT': outputs['Dissolvi2']['OUTPUT'],
-    'OUTPUT': "POP_GRID"
+    'OUTPUT': "pop_grid_vector_layer"
 }
 outputs['CalcolatoreDiCampi_finale'] = processing.run('qgis:fieldcalculator', alg_params)
 results['Output'] = outputs['CalcolatoreDiCampi_finale']['OUTPUT']### RISULTATO DA SALVARE
