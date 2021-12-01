@@ -10,17 +10,17 @@
         "hasDefault": false,
         "valueSchema": "url",
         "target": "POP.zip"
-     },
-	   {
+       },
+       {
         "id": "pop_field",
         "inputType": "individual",
         "valueType": "value",
         "description": "Name of population attribute field",
-		"name": "OPTIONAL POP field (string of attribute field name from POP vector input). Default value:'POP'",
+	"name": "OPTIONAL POP field (string of attribute field name from POP vector input). Default value:'POP'",
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "string_parameter",
-		"defaultValue":"POP"
+	"defaultValue":"POP"
 	 },
        {
         "id": "urban_atlas_vector_layer",
@@ -32,17 +32,17 @@
         "hasDefault": false,
         "valueSchema": "url",
         "target": "UrbanAtlas.zip"
-     },
-	   {
+       },
+      {
         "id": "class_encoding_field",
         "inputType": "individual",
         "valueType": "value",
         "description": "Name of the field with the class encoding",
-		"name": "OPTIONAL Class code field(string of attribute field name from Urban Atlas input). Default value:'code_2018'",
+	"name": "OPTIONAL Class code field(string of attribute field name from Urban Atlas input). Default value:'code_2018'",
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "string_parameter",
-		"defaultValue":"code_2018",
+	"defaultValue":"code_2018",
         "target": "code_2018"
 	 },
    	    {
@@ -61,7 +61,7 @@
         "inputType": "individual",
         "valueType": "value",
         "description": "Building heights",
-		"name": "OPTIONAL. Building heights raster input",
+	"name": "OPTIONAL. Building heights raster input",
         "obligation": false,
         "hasDefault": false,
         "valueSchema": "url",
@@ -72,44 +72,44 @@
         "inputType": "individual",
         "valueType": "value",
         "description": "Weight for residential building use areas",
-		"name": "OPTIONAL. Residential weight (number). Default value: 1.0",
+	"name": "OPTIONAL. Residential weight (number). Default value: 1.0",
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "number_parameter",
-		"defaultValue":1.0
+	"defaultValue":1.0
       },
 	    {
         "id": "Rural_weight",
         "inputType": "individual",
         "valueType": "value",
         "description": "Weight for rural building use areas",
-		"name": "OPTIONAL. Rural_weight(number). Default value: 0.7",
+	"name": "OPTIONAL. Rural_weight(number). Default value: 0.7",
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "number_parameter",
-		"defaultValue":0.7
+	"defaultValue":0.7
       },
 	    {
         "id": "IndComm_weight",
         "inputType": "individual",
         "valueType": "value",
         "description": "Weight for industrial, commercial and leisure building use areas",
-		"name": "OPTIONAL. Industrial, commercial and leisure weight(number). Default value: 0.1",
+	"name": "OPTIONAL. Industrial, commercial and leisure weight(number). Default value: 0.1",
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "number_parameter",
-		"defaultValue":0.1
+	"defaultValue":0.1
       },
 	    {
         "id": "Others_weight",
         "inputType": "individual",
         "valueType": "value",
         "description": "Weight for other building use classes",
-		"name": "OPTIONAL. Weight for other building use areas. Default value: 0.01",
+	"name": "OPTIONAL. Weight for other building use areas. Default value: 0.01",
         "obligation": false,
         "hasDefault": true,
         "valueSchema": "number_parameter",
-		"defaultValue":0.01
+	"defaultValue":0.01
       }
        ],
     "outputs": [
@@ -118,10 +118,8 @@
         "outputType": "individual",
         "valueType": "value",
         "description": "Grid population map (100 m x 100 m)",
-		"name": "POP_GRID",
-		"hasDefault": true,
-		"defaultValue":"POP_GRID.gpkg",
-		"valueSchema": "url",
+	"name": "POP_GRID",
+	"valueSchema": "url",
         "target": "POP_GRID.gpkg"
      },	
         {
@@ -129,8 +127,8 @@
         "outputType": "individual",
         "valueType": "value",
         "description": "Log file",
-		"name": "log",
-		"valueSchema": "url",
+	"name": "log",
+	"valueSchema": "url",
         "target": "log.txt"
      }		 
       ]
