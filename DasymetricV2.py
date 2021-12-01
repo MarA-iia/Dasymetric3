@@ -57,6 +57,9 @@ print("Industrial, Commercial and Leisure weight:", W3)
 print("Others weight:", W4)
 vlabparams.close()
 
+form = sys.argv[1]
+form2 = form.encode("string_escape")
+print form2
 print("This is the name of the script:", sys.argv[0])
 print("Number of arguments:", len(sys.argv))
 print("The arguments are:" , str(sys.argv))
