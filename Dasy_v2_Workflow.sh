@@ -13,7 +13,7 @@ Xvfb :99 -ac -noreset &
 export DISPLAY=:99
 
 formula=$(bash creare_formula_sql.sh)
-echo $formula
+#echo $formula
 
 # python3 argument_input.py  "$formula"
 # python3 DasymetricV2.py "$formula" 2>&1 | tee log.txt
