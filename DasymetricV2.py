@@ -17,7 +17,7 @@ qgs.setPrefixPath("/usr", True)
 qgs.initQgis()
 QgsApplication.processingRegistry().addProvider(QgsNativeAlgorithms())
 #
-gdal.SetConfigOption('CPL_LOG', 'NUL')
+#gdal.SetConfigOption('CPL_LOG', 'NUL')
 ## Processing init
 #input_output
 outputs = {}
