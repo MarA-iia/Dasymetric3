@@ -44,6 +44,8 @@ parameters=json.loads(vlabparams.read())
 
 pop_field=parameters['pop_field']
 print(pop_field)
+code=parameters['class_encoding_field']
+print(code)
 
 #weights
 W1=parameters['Residential_weight']
@@ -57,12 +59,62 @@ print("Industrial, Commercial and Leisure weight:", W3)
 print("Others weight:", W4)
 vlabparams.close()
 
-form = sys.argv[1]
-form2 = form.encode("unicode_escape")
-print("Stringa della formula: ",form2)
-print("This is the name of the script:", sys.argv[0])
-print("Number of arguments:", len(sys.argv))
-print("The arguments are:" , str(sys.argv))
+my_file=open('parameters.txt', 'r')
+my_str=my_file.readlines()
+Residential= my_str[0]
+Rural=my_str[1]
+IndCommLeisure=my_str[2]
+RoadsEtal=my_str[3]
+res = Residential.split(sep='Residential=("',maxsplit=-1)
+res1=res[1].split(sep='")\n',maxsplit=-1)
+res2=res1[0].split(sep='" "',maxsplit=-1)
+print(res2)
+rur = Rural.split(sep='Rural=("',maxsplit=-1)
+rur1=rur[1].split(sep='")\n',maxsplit=-1)
+rur2=rur1[0].split(sep='" "',maxsplit=-1)
+print(rur2)
+ind = IndCommLeisure.split(sep='IndCommLeisure=("',maxsplit=-1)
+ind1=ind[1].split(sep='")\n',maxsplit=-1)
+ind2=ind1[0].split(sep='" "',maxsplit=-1)
+print(ind2)
+road = RoadsEtal.split(sep='RoadsEtal=("',maxsplit=-1)
+road1=road[1].split(sep='")\n',maxsplit=-1)
+road2=road1[0].split(sep='" "',maxsplit=-1)
+print(road2)
+VAR='CASE '
+i=0
+for str1 in res2:
+    i+=0
+    ELEMENT=(' WHEN "' + code + '="' + res2[i]+'" THEN '+ '"Res" ')
+    VAR+=ELEMENT
+#print(VAR)
+
+for str2 in rur2:
+    i+=0
+    ELEMENT=(' WHEN "' + code + '="' + rur2[i]+'" THEN '+ '"Rural" ')
+    VAR+=ELEMENT
+#print(VAR)
+
+for str3 in ind2:
+    i+=0
+    ELEMENT=(' WHEN "' + code + '="' + ind2[i]+'" THEN '+ '"IndCommLei" ')
+    VAR+=ELEMENT
+#print(VAR)
+
+for str4 in road2:
+    i+=0
+    ELEMENT=(' WHEN "' + code + '="' + road2[i]+'" THEN '+ '"RoadsEt" ')
+    VAR+=ELEMENT
+#print(VAR)
+VAR=VAR + 'ELSE' + ' "Other" ' + 'END'
+print(VAR)
+
+#form = sys.argv[1]
+#form2 = form.encode("unicode_escape")
+#print("Stringa della formula: ",form2)
+#print("This is the name of the script:", sys.argv[0])
+#print("Number of arguments:", len(sys.argv))
+#print("The arguments are:" , str(sys.argv))
 #print("Reclassification formula (from Urban Atlas to building use mapping):", str(sys.argv))
 #Example output
 #This is the name of the script: sysargv.py
