@@ -65,6 +65,7 @@ Residential= my_str[0]
 Rural=my_str[1]
 IndCommLeisure=my_str[2]
 RoadsEtal=my_str[3]
+my_file.close()
 res = Residential.split(sep='Residential=("',maxsplit=-1)
 res1=res[1].split(sep='")\n',maxsplit=-1)
 res2=res1[0].split(sep='" "',maxsplit=-1)
