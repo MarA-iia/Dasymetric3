@@ -165,7 +165,7 @@ alg_params = {
     'FORMULA':str(VAR),
     #'FORMULA': 'CASE \r\nWHEN \"code_2018\"=\'11100\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11210\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11220\' THEN \'Res\'    \r\nWHEN \"code_2018\"=\'11230\' THEN \'Res\' \r\nWHEN \"code_2018\"=\'11240\' THEN \'Res\'\r\nWHEN \"code_2018\"=\'13400\' THEN \'Res\'   \r\nWHEN \"code_2018\"=\'12100\' THEN \'IndCommLei\'\r\nWHEN \"code_2018\"=\'14100\' THEN \'IndCommLei\' \r\nWHEN \"code_2018\"=\'14200\' THEN \'IndCommLei\' \r\nWHEN \"code_2018\"=\'21000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'22000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'23000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'24000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'32000\' THEN \'Rural\' \r\nWHEN \"code_2018\"=\'33000\' THEN \'Rural\'\r\nWHEN \"code_2018\"=\'12210\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12220\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12230\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12300\' THEN \'RoadsEt\'\r\nWHEN \"code_2018\"=\'12400\' THEN \'RoadsEt\'     \r\nELSE \'Other\'\r\nEND',
     'INPUT': outputs['EstrairitagliaDaEstensione']['OUTPUT'],
-    'OUTPUT': "POP_GRID.gpkg"
+    'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
 }
 outputs['CalcolatoreCampi_class'] = processing.run('qgis:fieldcalculator', alg_params)
 
@@ -386,7 +386,7 @@ alg_params = {
     'FIELD_TYPE': 0,
     'FORMULA': 'to_real(\"sum\")',
     'INPUT': outputs['Dissolvi2']['OUTPUT'],
-    'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
+    'OUTPUT': "POP_GRID.gpkg"
 }
 outputs['CalcolatoreDiCampi_finale'] = processing.run('qgis:fieldcalculator', alg_params)
 results['Output'] = outputs['CalcolatoreDiCampi_finale']['OUTPUT']### RISULTATO DA SALVARE
