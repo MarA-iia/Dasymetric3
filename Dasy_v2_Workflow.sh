@@ -18,4 +18,4 @@ export DISPLAY=:99
 # python3 argument_input.py  "$formula"
 #python3 DasymetricV2.py "$formula" 2>&1 | tee log.txt
 #python3 DasymetricV2.py "$formula"
-python3 DasymetricV2.py log.txt
+python3 DasymetricV2.py >> log.txt
