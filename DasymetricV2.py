@@ -179,7 +179,7 @@ alg_params = {
     'FIELD_NAME': 'Factor',
     'FIELD_PRECISION': 2,
     'FIELD_TYPE': 0,
-    'FORMULA': str(VAR2)
+    'FORMULA': str(VAR2),
     #'FORMULA': 'CASE \r\nWHEN \"BUclass\"=\'Res\' THEN'+ str(W1) + '\r\nWHEN \"BUclass\"=\'IndCommLei\' THEN'+ str(W3) + '\r\nWHEN \"BUclass\"=\'Rural\' THEN' + str(W2) + '\r\nWHEN \"BUclass\"=\'RoadsEt\' THEN 0.0   \r\nELSE' + str(W4) '\r\nEND',
     'INPUT': outputs['CalcolatoreCampi_class']['OUTPUT'],
     'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
