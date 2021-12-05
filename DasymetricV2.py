@@ -169,7 +169,7 @@ alg_params = {
 }
 outputs['CalcolatoreCampi_class'] = processing.run('qgis:fieldcalculator', alg_params)
 
-VAR2='CASE \r\nWHEN \"BUclass\"=\'Res\' THEN '+ str(W1) + '\r\nWHEN \"BUclass\"=\'IndCommLei\' THEN '+ str(W3) + '\r\nWHEN \"BUclass\"=\'Rural\' THEN ' + str(W2) + '\r\nWHEN \"BUclass\"=\'RoadsEt\' THEN '+ str(0.0)+ '\r\nELSE' + str(W4)+'\r\nEND'
+VAR2='CASE \r\nWHEN \"BUclass\"=\'Res\' THEN '+ str(W1) + '\r\nWHEN \"BUclass\"=\'IndCommLei\' THEN '+ str(W3) + '\r\nWHEN \"BUclass\"=\'Rural\' THEN ' + str(W2) + '\r\nWHEN \"BUclass\"=\'RoadsEt\' THEN '+ str(0.0)+ '\r\nELSE ' + str(W4)+'\r\nEND'
 print(str(VAR2))
 
 # Calcolatore di campi_Factor #ATTENZIONE:per questa parte mi piacerebbe inserire una personalizzazione dei parametri da parte dell'utente(vedi allegato)
