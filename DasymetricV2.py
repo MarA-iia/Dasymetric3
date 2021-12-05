@@ -86,38 +86,39 @@ VAR='CASE '
 i=0
 for str1 in res2:
     i+=0
-    ELEMENT=(' WHEN \"' + code + '=\'' + res2[i]+'\' THEN '+ '\'Res\' ')
+    ELEMENT=(' WHEN \'' + code + '\' =\'' + res2[i]+'\' THEN '+ '\'Res\' ')
     VAR+=ELEMENT
 
-#print(VAR)
+print(VAR)
 
 for str2 in rur2:
     i+=0
-    ELEMENT=(' WHEN \"' + code + '=\'' + rur2[i]+'\' THEN '+ '\'Rural\' ')
+    ELEMENT=(' WHEN \'' + str(code) + '\'=\'' + rur2[i]+'\' THEN '+ '\'Rural\' ')
     VAR+=ELEMENT
 
 #print(VAR)
 for str3 in ind2:
     i+=0
-    ELEMENT=(' WHEN \"' + code + '=\'' + ind2[i]+'\' THEN '+ '\'IndCommLei\' ' )
+    ELEMENT=(' WHEN \'' + str(code) + '\'=\'' + ind2[i]+'\' THEN '+ '\'IndCommLei\' ' )
     VAR+=ELEMENT
     
 #print(VAR)
 for str4 in road2:
     i+=0
-    ELEMENT=(' WHEN \"' + code + '=\'' + road2[i]+'\' THEN '+ '\'RoadsEt\' ')
+    ELEMENT=(' WHEN \'' + str(code) + '\'=\'' + road2[i]+'\' THEN '+ '\'RoadsEt\' ')
     VAR+=ELEMENT
     
 #print(VAR)
 VAR=VAR + 'ELSE' + ' \'Other\' ' + 'END'
-print(VAR)
+#print(VAR)
+
 #form = sys.argv[1]
 #form2 = form.encode("unicode_escape")
 #print("Stringa della formula: ",form2)
 #print("This is the name of the script:", sys.argv[0])
 #print("Number of arguments:", len(sys.argv))
 #print("The arguments are:" , str(sys.argv))
-#print("Reclassification formula (from Urban Atlas to building use mapping):", str(sys.argv))
+print("Reclassification formula (from Urban Atlas to building use mapping):", str(VAR))
 #Example output
 #This is the name of the script: sysargv.py
 #Number of arguments in: 3
