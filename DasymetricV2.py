@@ -322,7 +322,7 @@ alg_params = {
     'KEEP_ATTRIBUTES': False,
     'OPTIONS': '',
     'STATISTICS_ATTRIBUTE': 'Vol_subel',
-    'OUTPUT': "POP_GRID.gpkg"
+    'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
 }
 outputs['Dissolvi'] = processing.run('gdal:dissolve', alg_params)
 
@@ -331,69 +331,69 @@ outputs['Dissolvi'] = processing.run('gdal:dissolve', alg_params)
 #  print ("outdiss1 failed to load!")
 
 # Unisci attributi secondo il valore del campo
-#alg_params = {
-#    'DISCARD_NONMATCHING': False,
-#    'FIELD': 'CENSUS_ID',
-#    'FIELDS_TO_COPY': ['sum'],
-#    'FIELD_2': 'CENSUS_ID',
-#    'INPUT': outputs['CalcolatoreCampoVoladj']['OUTPUT'],
-#    'INPUT_2': outdiss1,
-#    'METHOD': 1,
-#    'PREFIX': 'Vol_subel',
-#    'OUTPUT': "/home/out2.shp"
-#}
-#outputs['UnisciAttributiSecondoIlValoreDelCampo'] = processing.run('native:joinattributestable', alg_params)
+alg_params = {
+    'DISCARD_NONMATCHING': False,
+    'FIELD': 'CENSUS_ID',
+    'FIELDS_TO_COPY': ['sum'],
+    'FIELD_2': 'CENSUS_ID',
+    'INPUT': outputs['CalcolatoreCampoVoladj']['OUTPUT'],
+    'INPUT_2': outputs['Dissolvi']['OUTPUT'],
+    'METHOD': 1,
+    'PREFIX': 'Vol_subel',
+    'OUTPUT': "/home/out2.shp"
+}
+outputs['UnisciAttributiSecondoIlValoreDelCampo'] = processing.run('native:joinattributestable', alg_params)
 
-#out2 = QgsVectorLayer("/home/out2.shp","out2","ogr")
-#if not out2.isValid():
-#  print ("out2 failed to load!")
+out2 = QgsVectorLayer("/home/out2.shp","out2","ogr")
+if not out2.isValid():
+  print ("out2 failed to load!")
 
 # Calcolatore di campiPOPw
-#Processing.initialize()
-#alg_params = {
- #   'FIELD_LENGTH': 10,
- #   'FIELD_NAME': 'POPw',
- #   'FIELD_PRECISION': 2,
- #   'FIELD_TYPE': 0,
- #   'FORMULA': ' ( \"POP\" *  \"VOL_subel\")/ (\"Vol_subels\")',
- #   'INPUT': outputs['UnisciAttributiSecondoIlValoreDelCampo']['OUTPUT'],
- #   'OUTPUT': "/home/out3.shp"
-#}
-#outputs['CalcolatoreDiCampipopw'] = processing.run('qgis:fieldcalculator', alg_params)
+Processing.initialize()
+alg_params = {
+    'FIELD_LENGTH': 10,
+    'FIELD_NAME': 'POPw',
+    'FIELD_PRECISION': 2,
+    'FIELD_TYPE': 0,
+    'FORMULA': ' ( \"POP\" *  \"VOL_subel\")/ (\"Vol_subels\")',
+    'INPUT': outputs['UnisciAttributiSecondoIlValoreDelCampo']['OUTPUT'],
+    'OUTPUT': "/home/out3.shp"
+}
+outputs['CalcolatoreDiCampipopw'] = processing.run('qgis:fieldcalculator', alg_params)
 
-#out3 = QgsVectorLayer("/home/out3.shp","out3","ogr")
-#if not out3.isValid():
-  #print ("out3 failed to load!")   
+out3 = QgsVectorLayer("/home/out3.shp","out3","ogr")
+if not out3.isValid():
+  print ("out3 failed to load!")   
   
 # Dissolvi2
-#alg_params = {
-#    'COMPUTE_AREA': False,
-#    'COMPUTE_STATISTICS': True,
-#    'COUNT_FEATURES': False,
-#    'EXPLODE_COLLECTIONS': False,
-#    'FIELD': 'id',
-#    'GEOMETRY': 'geometry',
-#    'INPUT': out3,
-#    'KEEP_ATTRIBUTES': False,
-#    'OPTIONS': '',
-#    'STATISTICS_ATTRIBUTE': 'POPw',
-#    'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT #"C:/Users/Utente/Desktop/Deliverable_SMURBS/VLAB/Data/outdiss29.shp"
-#}
-#outputs['Dissolvi2'] = processing.run('gdal:dissolve', alg_params)
+alg_params = {
+    'COMPUTE_AREA': False,
+    'COMPUTE_STATISTICS': True,
+    'COUNT_FEATURES': False,
+    'EXPLODE_COLLECTIONS': False,
+    'FIELD': 'id',
+    'GEOMETRY': 'geometry',
+    'INPUT': out3,
+    'KEEP_ATTRIBUTES': False,
+    'OPTIONS': '',
+    'STATISTICS_ATTRIBUTE': 'POPw',
+    'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT #"C:/Users/Utente/Desktop/Deliverable_SMURBS/VLAB/Data/outdiss29.shp"
+}
+outputs['Dissolvi2'] = processing.run('gdal:dissolve', alg_params)
 
 # Calcolatore di campi_finale
-#Processing.initialize()
-#alg_params = {
-#    'FIELD_LENGTH': 10,
-#    'FIELD_NAME': 'POPgrid',
-#    'FIELD_PRECISION': 3,
-#    'FIELD_TYPE': 0,
-#    'FORMULA': 'to_real(\"sum\")',
-#    'INPUT': outputs['Dissolvi2']['OUTPUT'],
-#    'OUTPUT': "POP_GRID.gpkg"
-#}
-#outputs['CalcolatoreDiCampi_finale'] = processing.run('qgis:fieldcalculator', alg_params)
-#results['Output'] = outputs['CalcolatoreDiCampi_finale']['OUTPUT']### RISULTATO DA SALVARE
+Processing.initialize()
+alg_params = {
+    'FIELD_LENGTH': 10,
+    'FIELD_NAME': 'POPgrid',
+    'FIELD_PRECISION': 3,
+    'FIELD_TYPE': 0,
+    'FORMULA': 'to_real(\"sum\")',
+    'INPUT': outputs['Dissolvi2']['OUTPUT'],
+    'OUTPUT': "POP_GRID.gpkg"
+}
+outputs['CalcolatoreDiCampi_finale'] = processing.run('qgis:fieldcalculator', alg_params)
+results['Output'] = outputs['CalcolatoreDiCampi_finale']['OUTPUT']### RISULTATO DA SALVARE
 
 print('All done!')
 
