@@ -82,35 +82,35 @@ road = RoadsEtal.split(sep='RoadsEtal=("',maxsplit=-1)
 road1=road[1].split(sep='")\n',maxsplit=-1)
 road2=road1[0].split(sep='" "',maxsplit=-1)
 print(road2)
-VAR='CASE '
+VAR='CASE \r\n'
 i=0
 for str1 in res2:
     i+=0
-    ELEMENT=(' WHEN \'' + code + '\' =\'' + res2[i]+'\' THEN '+ '\'Res\' ')
+    ELEMENT=(' WHEN \"' + code + '\" =\'' + res2[i]+'\' THEN '+ '\'Res\' ')
     VAR+=ELEMENT
 
 print(VAR)
 
 for str2 in rur2:
     i+=0
-    ELEMENT=(' WHEN \'' + str(code) + '\'=\'' + rur2[i]+'\' THEN '+ '\'Rural\' ')
+    ELEMENT=(' WHEN \"' + code + '\" =\'' + rur2[i]+'\' THEN '+ '\'Rural\' ')
     VAR+=ELEMENT
 
 #print(VAR)
 for str3 in ind2:
     i+=0
-    ELEMENT=(' WHEN \'' + str(code) + '\'=\'' + ind2[i]+'\' THEN '+ '\'IndCommLei\' ' )
+    ELEMENT=(' WHEN \"' + code + '\" =\'' + ind2[i]+'\' THEN '+ '\'IndCommLei\' ' )
     VAR+=ELEMENT
     
 #print(VAR)
 for str4 in road2:
     i+=0
-    ELEMENT=(' WHEN \'' + str(code) + '\'=\'' + road2[i]+'\' THEN '+ '\'RoadsEt\' ')
+    ELEMENT=(' WHEN \"' + code + '\" =\'' + road2[i]+'\' THEN '+ '\'RoadsEt\' ')
     VAR+=ELEMENT
     
 #print(VAR)
-VAR=VAR + 'ELSE' + ' \'Other\' ' + 'END'
-#print(VAR)
+VAR=VAR + 'ELSE' + ' \'Other\' ' + '\r\nEND'
+print(VAR)
 
 #form = sys.argv[1]
 #form2 = form.encode("unicode_escape")
