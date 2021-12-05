@@ -267,7 +267,6 @@ outputs['StatisticheZonaliBucount'] = processing.run('native:zonalstatistics', a
 zr1= QgsRasterLayer("Heights.zip", "Building_heights") #questo input dovrebbe essere opzionale
 if zr1.isValid():
    # Statistiche zonali Hmean ##PASSAGGIO OPZIONALE CHE SI PUò ATTUARE SOLO IN PRESENZA DI DATI SULLE ALTEZZE
-     Processing.initialize()
      alg_params = {
        'COLUMN_PREFIX': 'Hint_',
         'INPUT_RASTER': zr1,
