@@ -348,6 +348,7 @@ out2 = QgsVectorLayer("/home/out2.shp","out2","ogr")
 if not out2.isValid():
   print ("out2 failed to load!")
 
+VAR3='(\"'+str(pop_field)+'\" *  \"VOL_subel\")/ (\"Vol_subels\")'
 # Calcolatore di campiPOPw
 Processing.initialize()
 alg_params = {
@@ -355,7 +356,8 @@ alg_params = {
     'FIELD_NAME': 'POPw',
     'FIELD_PRECISION': 2,
     'FIELD_TYPE': 0,
-    'FORMULA': ' ( \"POP\" *  \"VOL_subel\")/ (\"Vol_subels\")',
+    'FORMULA': str(VAR3),
+    #'FORMULA': ' ( \"POP\" *  \"VOL_subel\")/ (\"Vol_subels\")',
     'INPUT': outputs['UnisciAttributiSecondoIlValoreDelCampo']['OUTPUT'],
     'OUTPUT': "/home/out3.shp"
 }
