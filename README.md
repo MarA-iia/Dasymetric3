@@ -1,5 +1,5 @@
 # DasymetricV2.2
-EO-based method for generating POP density grid map (reproducible for European cities)
+EO-based method for generating POP density grid map (reproducible for European cities).
 Data sample available at
 https://github.com/MarA-iia/DasymetricV2/blob/main/Data/POPBari_2020.zip?raw=true
 https://github.com/MarA-iia/DasymetricV2/blob/main/Data/UrbanAtlas.zip?raw=true
